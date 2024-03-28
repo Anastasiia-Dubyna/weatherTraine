@@ -30,3 +30,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.time {
+  background-color: black;
+  color: white;
+  display: inline-block;
+}

@@ -4,12 +4,12 @@ import { getWeatherByCoords, getWeatherByQuery } from './js/api/weatherApi';
 import { getUserInfo } from './js/api/opencagedataApi';
 import { getPhotos } from './js/api/pixabayApi';
 import { setBackground } from './js/helpers/setBackground';
-
-const form = document.querySelector('.search-form');
+import { format } from 'date-fns';
+import { refs } from './js/refs';
 
 loadPage();
 
-form.addEventListener('submit', handleSubmit);
+refs.form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
   e.preventDefault();
@@ -30,3 +30,8 @@ function loadPage() {
 
   navigator.geolocation.getCurrentPosition(success);
 }
+
+const timer = setInterval(() => {
+  refs.dateSpan.textContent = format(new Date(), 'MMM do');
+  refs.timeSpan.textContent = format(new Date(), 'HH:mm:ss');
+}, 1000);
